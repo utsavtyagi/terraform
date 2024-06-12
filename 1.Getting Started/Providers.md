@@ -21,8 +21,6 @@ terraform {
 ### Configuration of the AWS Provider
 The following example demonstrates how to configure the AWS provider with a specific region:
 ```hcl
-hcl
-Copy code
 provider "aws" {
   region = "us-east-1"
 }
