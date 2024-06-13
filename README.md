@@ -1,4 +1,4 @@
-                          ![image](https://github.com/utsavtyagi/terraform/assets/40566947/99755b28-60fb-4a6d-ad20-41e18391dd8c)
+![image](https://github.com/utsavtyagi/terraform/assets/40566947/99755b28-60fb-4a6d-ad20-41e18391dd8c)
 
 # Terraform
 
