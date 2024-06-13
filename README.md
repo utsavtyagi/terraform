@@ -1,6 +1,8 @@
+![image](https://github.com/utsavtyagi/terraform/assets/40566947/99755b28-60fb-4a6d-ad20-41e18391dd8c)
+
 # Terraform
 
-Terraform is an infrastructure as code (IaC) tool developed by HashiCorp. It allows users to define and provision r infrastructure using a declarative configuration language known as HashiCorp Configuration Language (HCL). Terraform is widely used to manage resources across various cloud providers and services.
+Terraform is an infrastructure as code (IaC) tool developed by HashiCorp. It allows users to define and provision infrastructure using a declarative configuration language known as HashiCorp Configuration Language (HCL). Terraform is widely used to manage resources across various cloud providers and services.
 
 ## Key Concepts of Terraform
 
