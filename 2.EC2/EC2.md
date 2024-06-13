@@ -39,3 +39,23 @@ resource "aws_instance" "example" {
     Name = "ExampleInstance"
   }
 }
+```
+### Creating an EC2 Instance Using Terraform
+Steps to Apply the Terraform Configuration
+
+1. **Save the Configuration**: Save the above code in a file named main.tf.
+2. **Initialize Terraform**: Run the following command to initialize the Terraform working director
+```powershell
+   terraform init
+```
+3. **Plan the Changes**: Run the following command to preview the changes Terraform will make.
+```powershell
+   terraform plan
+```
+4. **Apply the Configuration**: Run the following command to apply the configuration and create the EC2 instance.
+```powershell
+   terraform apply
+```
+This will set up the AWS provider and create an EC2 instance as specified in the main.tf file.
+
+
