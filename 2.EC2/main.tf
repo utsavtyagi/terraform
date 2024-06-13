@@ -15,7 +15,7 @@ resource "aws_instance" "example" {
   ami           = "ami-0b20a6f09484773af" # Specify an appropriate AMI ID
   instance_type = "t2.micro"
   key_name = "demo_config_key_us-west-2"
-
+  vpc_security_group_ids = [ "sg-00f1906a3bb9a9383" ]
   tags = {
     Name = "ExampleInstance"
   }
