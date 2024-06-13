@@ -58,4 +58,64 @@ Steps to Apply the Terraform Configuration
 ```
 This will set up the AWS provider and create an EC2 instance as specified in the main.tf file.
 
+## Creating an EC2 Instance Using Terraform including Key Name
+
+Here's a simplified Terraform configuration to create an EC2 instance:
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-west-2"  # Set your desired AWS region
+}
+
+# Create an EC2 instance
+resource "aws_instance" "example" {
+  ami           = "ami-0b20a6f09484773af"  # Specify an appropriate AMI ID
+  instance_type = "t2.micro"
+  key_name = "demo_config_key_us-west-2"
+
+  tags = {
+    Name = "ExampleInstance"
+  }
+}
+```
+
+## Creating an EC2 Instance Using Terraform including Security Group
+
+Here's a simplified Terraform configuration to create an EC2 instance:
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-west-2"  # Set your desired AWS region
+}
+
+# Create an EC2 instance
+resource "aws_instance" "example" {
+  ami           = "ami-0b20a6f09484773af"  # Specify an appropriate AMI ID
+  instance_type = "t2.micro"
+  key_name = "demo_config_key_us-west-2"
+  vpc_security_group_ids = [ "sg-00f1906a3bb9a9383" ]
+
+  tags = {
+    Name = "ExampleInstance"
+  }
+}
+```
 
