@@ -201,5 +201,23 @@ resource "aws_security_group" "vpc_demo_security_group" {
 ### Create an EC2 instance in this VPC and configurations
 
 ```
-
+resource "aws_instance" "demo_aws_instance" {
+  ami           = "ami-0b20a6f09484773af" # Specify an appropriate AMI ID
+  instance_type = "t2.micro"
+  key_name = "demo_config_key_us-west-2"
+  vpc_security_group_ids = [ "${aws_security_group.vpc_demo_security_group.id}" ]
+  subnet_id = aws_subnet.vpc_demo_public_subnet.id
+  associate_public_ip_address = true
+  user_data = <<-EOF
+              #!/bin/bash
+              yum update -y
+              yum install -y httpd
+              systemctl start httpd
+              systemctl enable httpd
+              echo "<html><body><h1>Hi Utsav! Welcome to your EC2 instance!</h1></body></html>" > /var/www/html/index.html
+              EOF
+  tags = {
+    Name = "demo_aws_instance"
+  }
+}
 ```
