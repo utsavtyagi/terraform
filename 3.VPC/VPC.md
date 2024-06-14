@@ -164,5 +164,42 @@ resource "aws_route_table_association" "vpc_demo_public_route_table_association"
 ### Configure Security Groups
 
 ```hcl
+resource "aws_security_group" "vpc_demo_security_group" {
+  name        = "vpc_demo_security_group"
+  description = "Allow inbound traffic and all outbound traffic"
+  vpc_id      = aws_vpc.vpc_demo.id
+
+  ingress {
+    description = "SSH from anywhere"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "80 from anywhere"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "vpc_demo_security_group"
+  }
+}
+```
+
+### Create an EC2 instance in this VPC and configurations
+
+```
 
 ```
