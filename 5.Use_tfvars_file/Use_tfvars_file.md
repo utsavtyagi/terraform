@@ -10,7 +10,7 @@ Create a file terrafrom..tfvars or any name with extension .tfvars
 aws_region = "us-west-2"
 ami_id = "ami-0b20a6f09484773af"
 instance_type = "t2.micro"
-key_name = "demo_config_key_us"
+key_name = "demo_config_key_us-west-2"
 security_group_id = "sg-00f1906a3bb9a9383"
 subnet_id = "subnet-c6b4b7bf"
 instance_name = "ExampleInstance"
@@ -20,7 +20,7 @@ In this example, aws_region, ami_id, instance_type,  key_name, security_group_id
 
 #### When you apply your Terraform configuration, you can specify the .tfvars file using the -var-file flag:
 ```powershell
-terraform apply -var-file=terraform.tfvars
+terraform apply -var-file="terraform.tfvars"
 ```
 
 ### Here's why `.tfvars` files are used:
