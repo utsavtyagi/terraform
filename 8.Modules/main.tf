@@ -38,7 +38,7 @@ output "security_group_id" {
 
 module "my-vec2-module" {
   source              = "./my-ec2-module"
-  #source               = "git::https://github.com/utsavtyagi/my-ec2-module.git"
+  source               = "git::https://github.com/utsavtyagi/my-ec2-module.git"
   aws_region              =  "us-west-2"
   ami_id = "ami-0b20a6f09484773af"
   instance_type = "t2.micro"
