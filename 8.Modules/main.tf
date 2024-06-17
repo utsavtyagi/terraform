@@ -13,6 +13,7 @@ provider "aws" {
 
 module "my-vpc-module" {
   source              = "./my-vpc-module"
+  #source               = "git::https://github.com/utsavtyagi/my-vpc-module.git"
   vpc_cidr_block          = "10.0.0.0/16"
   vpc_name                = "vpc_demo"
   vpc_public_subnet_cidr_block        = "10.0.11.0/24"
