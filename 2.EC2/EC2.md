@@ -59,7 +59,7 @@ Steps to Apply the Terraform Configuration
 This will set up the AWS provider and create an EC2 instance as specified in the main.tf file.
 
 
-## Creating an EC2 Instance Using Terraform including Key Name & Security Group
+## Creating an EC2 Instance Using Terraform including Key Name, Security Group & Subnet
 
 ```hcl
 terraform {
@@ -81,6 +81,7 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
   key_name = "demo_config_key_us-west-2"
   vpc_security_group_ids = [ "sg-00f1906a3bb9a9383" ]
+  subnet_id = "subnet-c6b4b7bf"
 
   tags = {
     Name = "ExampleInstance"
@@ -88,7 +89,7 @@ resource "aws_instance" "example" {
 }
 ```
 
-## Creating an EC2 Instance Using Terraform including Subnet and user data
+## Creating an EC2 Instance Using Terraform with user data
 
 ```hcl
 terraform {
