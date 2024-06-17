@@ -221,24 +221,41 @@ In your root module directory, create the following configuration:
 
 **main.tf:**
 ```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
 
-module "my_vpc" {
+module "my-vpc-module" {
   source              = "./my-vpc-module"
-  cidr_block          = "10.0.0.0/16"
-  name                = "my-vpc"
-  subnet_cidrs        = ["10.0.1.0/24", "10.0.2.0/24"]
-  availability_zones  = ["us-east-1a", "us-east-1b"]
+  #source               = "git::https://github.com/utsavtyagi/my-vpc-module.git"
+  aws_region              =  "us-west-2"
+  vpc_cidr_block          = "10.0.0.0/16"
+  vpc_name                = "vpc_demo"
+  vpc_public_subnet_cidr_block        = "10.0.11.0/24"
+  vpc_public_subnet_avaialability_zone = "us-west-2a"
+  vpc_private_subnet_cidr_block = "10.0.22.0/24"
+  vpc_private_subnet_avaialability_zone = "us-west-2b"
 }
 
 output "vpc_id" {
-  value = module.my_vpc.vpc_id
+  value = module.my-vpc-module.vpc_id
 }
 
-output "subnet_ids" {
-  value = module.my_vpc.subnet_ids
+output "subnet_id_public" {
+  value = module.my-vpc-module.subnet_id_public
+}
+
+output "security_group_id" {
+  value = module.my-vpc-module.security_group_id
 }
 ```
 
@@ -246,5 +263,7 @@ output "subnet_ids" {
 Modules can be sourced from various locations:
 
 Local Path: source = "./my-vpc-module"
-Git Repository: source = "git::<https://github.com/<terraform-aws-module/terraform-aws-module.git>"
+
+Git Repository: source = "git::https://github.com/utsavtyagi/my-vpc-module.git"
+
 Other Supported Sources: Such as Terraform Registry, HTTP URLs, Mercurial, Bitbucket, GCS, S3, etc.
