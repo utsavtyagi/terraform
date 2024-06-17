@@ -5,7 +5,7 @@ Terraform allows you to define variable files called *.tfvars to create a reusab
 In Terraform, .tfvars files, usually identified by their .tfvars extension, are utilized to assign particular values to input variables outlined in your Terraform configuration. These files enable the segregation of configuration values from your Terraform code, simplifying the management of diverse configurations for various environments (like development, staging, and production) or facilitating the storage of sensitive information without its exposure in your code.
 
 #### Here's a basic example of what a .tfvars file might look like:
-Create a file terrafrom..tfvars or any name with extension .tfvars
+Create a file terrafrom.tfvars or any name with extension .tfvars
 ```hcl
 aws_region = "us-west-2"
 ami_id = "ami-0b20a6f09484773af"
