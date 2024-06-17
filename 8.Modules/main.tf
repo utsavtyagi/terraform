@@ -50,10 +50,10 @@ module "my-ec2-module" {
 }
 output "instance_id" {
   description = "The ID of the EC2 instance"
-  value       = module.my-vec2-module.instance_id
+  value       = module.my-ec2-module.instance_id
 }
 
 output "instance_public_ip" {
   description = "The public IP address of the EC2 instance"
-  value       = module.my-vec2-module.instance_public_ip
+  value       = module.my-ec2-module.instance_public_ip
 }
