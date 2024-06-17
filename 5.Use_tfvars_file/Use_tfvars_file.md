@@ -22,3 +22,12 @@ In this example, aws_region, ami_id, instance_type,  key_name, security_group_id
 terraform apply -var-file=terraform.tfvars
 ```
 
+### Here's why `.tfvars` files are used:
+
+**Separation of Configuration and Code:** Terraform's input variables are designed to be customizable, allowing you to use the same code with various value sets. Instead of embedding these values directly into your `.tf` files, you use `.tfvars` files to maintain a separation. This simplifies the task of managing configurations for different environments.
+
+ **Storage of Sensitive Information:** `.tfvars` files serve as a secure repository for sensitive information such as API keys, access credentials, or other secrets. These values can be kept outside version control systems, bolstering security and preventing inadvertent exposure of secrets in your codebase.
+
+**Enhanced Reusability:** By storing configuration values in separate `.tfvars` files, you can reuse the same Terraform code with different variable sets. This is particularly beneficial for deploying infrastructure for distinct projects or environments using a single set of Terraform modules.
+
+**Facilitates Collaboration:** In team environments, each team member can utilize their own `.tfvars` file to set environment or workflow-specific values. This practice helps avoid conflicts within the codebase when multiple individuals are working on the same Terraform project.
