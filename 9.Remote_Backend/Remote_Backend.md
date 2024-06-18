@@ -4,7 +4,7 @@ A remote backend is a type of Terraform backend that stores the state file in a 
 
 Terraform state files are crucial as they track the state of your infrastructure. Storing the state file remotely ensures collaboration, consistency, and backup. 
 
-The local backend does not provide a way to easily share the state across different team members or systems. A remote backend, such as Amazon S3, Azure Storage, or HashiCorp Consul, is more suitable for collaboration. Durability and Backup: The local backend does not provide durability or backup features.
+The local backend does not provide a way to easily share the state across different team members or systems. A remote backend, such as Amazon S3, Azure Storage, or HashiCorp Consul, is more suitable for collaboration. 
 
 A remote backend stores the Terraform state file outside of your local file system and version control. Using S3 as a remote backend is a popular choice due to its reliability and scalability. Here's how to set it up:
 
